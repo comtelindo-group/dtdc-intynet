@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    function randomCoordinatesBalikpapan() {
+    function randomCoordinatesBalikpapan()
+    {
         // Define a list of specific latitude and longitude ranges that are only on land
         $landCoordinates = [
             ['latMin' => -1.25, 'latMax' => -1.20, 'lonMin' => 116.85, 'lonMax' => 117.00],
@@ -44,6 +45,42 @@ class DatabaseSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'password' => bcrypt('12345678'),
         ])->assignRole('admin');
+
+        User::create([
+            'name' => "Agen 1",
+            'email' => "agen1@gmail.com",
+            'password' => bcrypt("00497318"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 2",
+            'email' => "agen2@gmail.com",
+            'password' => bcrypt("55006575"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 3",
+            'email' => "agen3@gmail.com",
+            'password' => bcrypt("69820485"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 4",
+            'email' => "agen4@gmail.com",
+            'password' => bcrypt("09047476"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 5",
+            'email' => "agen5@gmail.com",
+            'password' => bcrypt("26763242"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 6",
+            'email' => "agen6@gmail.com",
+            'password' => bcrypt("09144167"),
+        ])->assignRole('relawan');
+        User::create([
+            'name' => "Agen 7",
+            'email' => "agen7@gmail.com",
+            'password' => bcrypt("36069799"),
+        ])->assignRole('relawan');
 
         // for ($i = 1; $i <= 30; $i++) {
         //     // Generate random coordinates
