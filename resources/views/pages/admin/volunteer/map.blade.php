@@ -101,6 +101,8 @@
                 style="background-color: green;"></span> Tertarik dengan produk Intynet Family 30 Mbps<br>
             <input type="checkbox" id="green4" checked> <span class="legend-color"
                 style="background-color: green;"></span> Tertarik dengan produk Intynet Maxima 50 Mbps<br>
+                <input type="checkbox" id="green4" checked> <span class="legend-color"
+                style="background-color: green;"></span> Tertarik dengan produk Intynet 100 Mbps<br>
             <input type="checkbox" id="yellow" checked> <span class="legend-color"
                 style="background-color: yellow;"></span> Tidak tertarik<br>
             <input type="checkbox" id="red" checked> <span class="legend-color"
@@ -154,6 +156,15 @@
             shadowAnchor: [12, 41]
         });
 
+        var greenMarker5 = L.icon({
+            iconUrl: '{{ asset('assets/plugins/custom/leaflet/images/leaflet/marker-icon-green.png') }}',
+            iconSize: [23, 35],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41],
+            shadowAnchor: [12, 41]
+        });
+
         var yellowMarker = L.icon({
             iconUrl: '{{ asset('assets/plugins/custom/leaflet/images/leaflet/marker-icon-yellow.png') }}',
             iconSize: [23, 35],
@@ -173,6 +184,8 @@
                     return greenMarker3;
                 case 'Tertarik dengan produk Intynet Maxima 50 Mbps':
                     return greenMarker4;
+                case 'Tertarik dengan produk Intynet 100 Mbps':
+                    return greenMarker5;
                 case 'Hanya taruh brosur':
                     return yellowMarker;
                 case 'Tidak tertarik':
@@ -190,6 +203,8 @@
                     return 'Tertarik dengan produk Intynet Family 30 Mbps';
                 case 'Tertarik dengan produk Intynet Maxima 50 Mbps':
                     return 'Tertarik dengan produk Intynet Maxima 50 Mbps';
+                case 'Tertarik dengan produk Intynet 100 Mbps':
+                    return 'Tertarik dengan produk Intynet 100 Mbps';
                 case 'Hanya taruh brosur':
                     return 'Hanya taruh brosur';
                 case 'Tidak tertarik':
@@ -260,6 +275,17 @@
                 }
             });
 
+            var greenCluster5 = L.markerClusterGroup({
+                iconCreateFunction: function(cluster) {
+                    return L.divIcon({
+                        html: '<div style="background-color:rgba(0,255,0,0.6);width:40px;height:40px;border-radius:50%;line-height:40px;text-align:center;color:white;">' +
+                            cluster.getChildCount() + '</div>',
+                        className: 'custom-cluster',
+                        iconSize: [40, 40]
+                    });
+                }
+            });
+
             var yellowCluster = L.markerClusterGroup({
                 iconCreateFunction: function(cluster) {
                     return L.divIcon({
@@ -301,6 +327,9 @@
                         greenCluster1.addLayer(marker);
                         break;
                     case 'Tertarik dengan produk Intynet Maxima 50 Mbps':
+                        greenCluster4.addLayer(marker);
+                        break;
+                    case 'Tertarik dengan produk Intynet 100 Mbps':
                         greenCluster4.addLayer(marker);
                         break;
                     case 'Hanya taruh brosur':

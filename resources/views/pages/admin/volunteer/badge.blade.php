@@ -11,6 +11,9 @@
     @case('Tertarik dengan produk Intynet Maxima 50 Mbps')
         <span class="badge badge-success">Tertarik dengan produk Intynet Maxima 50 Mbps</span>
     @break
+    @case('Tertarik dengan produk Intynet 100 Mbps')
+        <span class="badge badge-success">Tertarik dengan produk Intynet 100 Mbps</span>
+    @break
     @case('Hanya taruh brosur')
         <span class="badge badge-danger">Hanya taruh brosur</span>
     @break
