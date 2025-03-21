@@ -333,10 +333,10 @@
                         greenCluster4.addLayer(marker);
                         break;
                     case 'Hanya taruh brosur':
-                        redCluster.addLayer(marker);
+                        yellowCluster.addLayer(marker);
                         break;
                     case 'Tidak tertarik':
-                        yellowCluster.addLayer(marker);
+                        redCluster.addLayer(marker);
                         break;
                 }
             @endforeach

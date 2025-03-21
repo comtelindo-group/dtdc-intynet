@@ -108,7 +108,7 @@ class VolunteerController extends Controller
                 return view('pages.admin.volunteer.badge', compact('status'));
             })
             ->addColumn('created_at', function ($query) {
-                return Carbon::parse($query->created_at)->format('d-m-Y H:i');
+                return Carbon::parse($query->created_at)->addHours(3)->format('d-m-Y H:i');
             })
             ->rawColumns(['status'])
             ->addIndexColumn()

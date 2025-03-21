@@ -83,7 +83,7 @@ class VolunteerController extends Controller
         return DataTables::of($query)
             ->addIndexColumn()
             ->addColumn('created_at', function ($query) {
-                return Carbon::parse($query->created_at)->format('d-m-Y H:i');
+                return Carbon::parse($query->created_at)->addHours(3)->format('d-m-Y H:i');
             })
             ->addColumn('status', function ($query) {
                 $status = $query->status;

@@ -73,7 +73,7 @@
                     {{ $loop->iteration }}
                 </td>
                 <td>
-                    {{ \Carbon\Carbon::parse($d->created_at)->format('d F Y') }}
+                    {{ \Carbon\Carbon::parse($d->created_at)->addHours(3)->format('d F Y') }}
                 </td>
                 <td>
                     {{ $d->user->name }}
