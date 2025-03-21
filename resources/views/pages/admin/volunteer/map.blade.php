@@ -187,9 +187,9 @@
                 case 'Tertarik dengan produk Intynet 100 Mbps':
                     return greenMarker5;
                 case 'Hanya taruh brosur':
-                    return yellowMarker;
-                case 'Tidak tertarik':
                     return redMarker;
+                case 'Tidak tertarik':
+                    return yellowMarker;
             }
         }
 
@@ -333,10 +333,10 @@
                         greenCluster4.addLayer(marker);
                         break;
                     case 'Hanya taruh brosur':
-                        yellowCluster.addLayer(marker);
+                        redCluster.addLayer(marker);
                         break;
                     case 'Tidak tertarik':
-                        redCluster.addLayer(marker);
+                        yellowCluster.addLayer(marker);
                         break;
                 }
             @endforeach
