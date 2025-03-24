@@ -71,6 +71,7 @@ class VolunteerController extends Controller
         }
 
         $volunteer = Volunteer::create([
+            'user_id' => auth()->user()->id,
             'photo' => $filename,
             'name' => $request->name,
             'phone_number' => $request->phone_number,
