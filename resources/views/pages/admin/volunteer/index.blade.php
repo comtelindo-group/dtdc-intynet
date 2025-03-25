@@ -13,6 +13,7 @@
 @endsection
 
 @section('content')
+  @include('pages.admin.volunteer.component.modal-image')
   <div class="container-fluid">
     <div class="header-body">
       <div class="row">
@@ -61,18 +62,18 @@
     <div class="header-body">
       <div class="row">
         <div class="col-xl-2 col-lg-6">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Tertarik</h5>
-                    <br>
-                    <span class="h2 mb-0">{{ $interest }} Orang</span>
-                  </div>
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Tertarik</h5>
+                  <br>
+                  <span class="h2 mb-0">{{ $interest }} Orang</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         <div class="col-xl-2 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0">
             <div class="card-body">
@@ -323,6 +324,8 @@
       });
     });
   </script>
+
+
 @endsection
 
 @section('footer')

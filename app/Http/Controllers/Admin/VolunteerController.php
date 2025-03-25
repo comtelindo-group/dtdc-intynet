@@ -107,7 +107,7 @@ class VolunteerController extends Controller
                 return view('pages.admin.volunteer.badge', compact('status'));
             })
             ->addColumn('action', function ($query) {
-                return view('pages.admin.volunteer.menu', compact('query'));
+                return view('pages.admin.volunteer.component.menu', compact('query'));
             })
             ->rawColumns(['status'])
             ->addIndexColumn()
