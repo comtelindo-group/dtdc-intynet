@@ -158,6 +158,11 @@ class VolunteerController extends Controller
             'interest' => $interest,
             'notInterest' => $notInterest,
             'other' => $other,
+            'interest1' => $interest1,
+            'interest2' => $interest2,
+            'interest3' => $interest3,
+            'interest4' => $interest4,
+            'interest5' => $interest5,
         ]);
     }
 }
