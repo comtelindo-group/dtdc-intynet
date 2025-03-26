@@ -23,7 +23,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Total Volunteer</h5>
-                  <span class="h2 mb-0">{{ $all }} Orang</span>
+                  <span class="h2 mb-0" id="all">{{$all}} Orang</span>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tidak tertarik</h5>
-                  <span class="h2 mb-0">{{ $notInterest }} Orang</span>
+                  <span class="h2 mb-0" id="notInterest">{{$notInterest}} Orang</span>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Taruh brosur</h5>
-                  <span class="h2 mb-0">{{ $other }} Orang</span>
+                  <span class="h2 mb-0" id="other">{{$other}} Orang</span>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tertarik</h5>
                   <br>
-                  <span class="h2 mb-0">{{ $interest }} Orang</span>
+                  <span class="h2 mb-0" id="interest">{{$interest}} Orang</span>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tertarik 10Mbps</h5>
-                  <span class="h2 mb-0">{{ $interest1 }} Orang</span>
+                  <span class="h2 mb-0" id="interest1">{{ $interest1 }} Orang</span>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tertarik 20Mbps</h5>
-                  <span class="h2 mb-0">{{ $interest2 }} Orang</span>
+                  <span class="h2 mb-0" id="interest2">{{ $interest2 }} Orang</span>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">tertarik 30Mbps</h5>
-                  <span class="h2 mb-0">{{ $interest3 }} Orang</span>
+                  <span class="h2 mb-0" id="interest3">{{ $interest3 }} Orang</span>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tertarik 50Mbps</h5>
-                  <span class="h2 mb-0">{{ $interest4 }} Orang</span>
+                  <span class="h2 mb-0" id="interest4">{{ $interest4 }} Orang</span>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Tertarik 100Mbps</h5>
-                  <span class="h2 mb-0">{{ $interest5 }} Orang</span>
+                  <span class="h2 mb-0" id="interest5">{{ $interest5 }} Orang</span>
                 </div>
               </div>
             </div>
@@ -321,6 +321,38 @@
 
       $('#btn-search').on('click', function() {
         $('#table').DataTable().ajax.reload();
+
+
+        $.ajax({
+          url: "{{ route('admin.volunteer.statistic') }}",
+          type: 'POST',
+          data: {
+            user_id: $('[name="user_id"]').val(),
+            kelurahan: $('[name="kelurahan[]"]').val()
+          },
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          success: function(data) {
+            $('#all').text(data.all + " Orang");
+            $('#interest').text(data.interest + " Orang");
+            $('#notInterest').text(data.notInterest + " Orang");
+            $('#other').text(data.other + " Orang");
+            $('#interest1').text(data.interest1 + " Orang");
+            $('#interest2').text(data.interest2 + " Orang");
+            $('#interest3').text(data.interest3 + " Orang");
+            $('#interest4').text(data.interest4 + " Orang");
+            $('#interest5').text(data.interest5 + " Orang");
+          },
+          error: function(xhr, status, error) {
+            const data = xhr.responseJSON;
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: data.message,
+            });
+          }
+        });
       });
     });
   </script>

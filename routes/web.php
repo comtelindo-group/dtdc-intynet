@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
                 Route::post('/delete', 'delete')->name('admin.volunteer.delete');
 
                 Route::get('/get/datatable', 'getDatatable')->name('admin.volunteer.table');
+                Route::post('/get/statistic', 'getStatistic')->name('admin.volunteer.statistic');
             });
         });
     });

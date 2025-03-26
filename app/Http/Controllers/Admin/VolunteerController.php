@@ -113,4 +113,35 @@ class VolunteerController extends Controller
             ->addIndexColumn()
             ->make(true);
     }
+
+    public function getStatistic(Request $request)
+    {
+        $query = Volunteer::query();
+
+        if ($request->user_id != '*') {
+            $query->where('user_id', $request->user_id);
+        }
+
+        if ($request->kelurahan) {
+            $query->whereIn('kelurahan', $request->kelurahan);
+        }
+
+        $all = $query->count();
+        $notInterest = $query->where('status', Constant::VOLUNTEERS_STATUS["Tidak tertarik"])->count();
+        $other = $query->where('status', Constant::VOLUNTEERS_STATUS["Hanya taruh brosur"])->count();
+        $interest1 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Starter 10 Mbps"])->count();
+        $interest2 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Smart 20 Mbps"])->count();
+        $interest3 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Family 30 Mbps"])->count();
+        $interest4 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Maxima 50 Mbps"])->count();
+        $interest5 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet 100 Mbps"])->count();
+        $interest = $interest1+$interest2+$interest3+$interest4+$interest5;
+
+
+        return response()->json([
+            'all' => $all,
+            'interest' => $interest,
+            'notInterest' => $notInterest,
+            'other' => $other,
+        ]);
+    }
 }
