@@ -126,14 +126,14 @@ class VolunteerController extends Controller
             $query->whereIn('kelurahan', $request->kelurahan);
         }
 
-        $all = $query->count();
-        $notInterest = $query->where('status', Constant::VOLUNTEERS_STATUS["Tidak tertarik"])->count();
-        $other = $query->where('status', Constant::VOLUNTEERS_STATUS["Hanya taruh brosur"])->count();
-        $interest1 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Starter 10 Mbps"])->count();
-        $interest2 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Smart 20 Mbps"])->count();
-        $interest3 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Family 30 Mbps"])->count();
-        $interest4 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Maxima 50 Mbps"])->count();
-        $interest5 = $query->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet 100 Mbps"])->count();
+        $all = (clone $query)->count();
+        $notInterest = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tidak tertarik"])->count();
+        $other = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Hanya taruh brosur"])->count();
+        $interest1 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Starter 10 Mbps"])->count();
+        $interest2 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Smart 20 Mbps"])->count();
+        $interest3 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Family 30 Mbps"])->count();
+        $interest4 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Maxima 50 Mbps"])->count();
+        $interest5 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet 100 Mbps"])->count();
         $interest = $interest1+$interest2+$interest3+$interest4+$interest5;
 
 
