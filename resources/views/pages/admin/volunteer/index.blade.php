@@ -179,6 +179,16 @@
           @endforeach
         </select>
       </div>
+    </div>
+    <div class="row">
+      {{-- startdate enddate --}}
+        <div class="col-lg-4 mb-4">
+            <input type="date" name="startdate" class="form-control form-control-solid" id="startdate" placeholder="Start Date">
+        </div>
+        <div class="col-lg-4 mb-4">
+            <input type="date" name="enddate" class="form-control form-control-solid" id="enddate" placeholder="End Date">
+        </div>
+
       <div class="col-lg-4 mb-4">
         <button class="btn btn-sm btn-primary" type="button" id="btn-search">
           <i class="fas fa-search"></i>
@@ -265,6 +275,8 @@
             d.user_id = $('[name="user_id"]').val();
             d.status = $('[name="status"]').val();
             d.kelurahan = $('[name="kelurahan[]"]').val();
+            d.startdate = $('[name="startdate"]').val();
+            d.enddate = $('[name="enddate"]').val();
           }
         },
         language: {
@@ -328,7 +340,9 @@
           type: 'POST',
           data: {
             user_id: $('[name="user_id"]').val(),
-            kelurahan: $('[name="kelurahan[]"]').val()
+            kelurahan: $('[name="kelurahan[]"]').val(),
+            startdate: $('[name="startdate"]').val(),
+            enddate: $('[name="enddate"]').val()
           },
           headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'

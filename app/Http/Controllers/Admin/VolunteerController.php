@@ -97,6 +97,14 @@ class VolunteerController extends Controller
             $query->where('status', $request->status);
         }
 
+        if ($request->startdate) {
+            $query->whereDate('created_at', '>=', $request->startdate);
+        }
+
+        if ($request->enddate) {
+            $query->whereDate('created_at', '<=', $request->enddate);
+        }
+
         return DataTables::of($query)
             ->addIndexColumn()
             ->addColumn('created_at', function ($query) {
@@ -124,6 +132,14 @@ class VolunteerController extends Controller
 
         if ($request->kelurahan) {
             $query->whereIn('kelurahan', $request->kelurahan);
+        }
+
+        if ($request->startdate) {
+            $query->whereDate('created_at', '>=', $request->startdate);
+        }
+
+        if ($request->enddate) {
+            $query->whereDate('created_at', '<=', $request->enddate);
         }
 
         $all = (clone $query)->count();
