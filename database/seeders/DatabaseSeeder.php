@@ -46,41 +46,33 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ])->assignRole('admin');
 
+
         User::create([
-            'name' => "Agen 1",
-            'email' => "agen1@gmail.com",
-            'password' => bcrypt("00497318"),
+            'name' => "Andi koko /spv",
+            'email' => "andi@comtelindo.com",
+            'city' => "Bontang",
+            'password' => bcrypt("75985796"),
         ])->assignRole('relawan');
         User::create([
-            'name' => "Agen 2",
-            'email' => "agen2@gmail.com",
-            'password' => bcrypt("55006575"),
+            'name' => "Tri yoga /DSE",
+            'email' => "yoga@comtelindo.com",
+            'city' => "Bontang",
+            'password' => bcrypt("03710568"),
         ])->assignRole('relawan');
         User::create([
-            'name' => "Agen 3",
-            'email' => "agen3@gmail.com",
-            'password' => bcrypt("69820485"),
+            'name' => "Riski amin /DSE",
+            'email' => "riski.rismin5511@gmail.com ",
+            'city' => "Bontang",
+            'password' => bcrypt("09548083"),
         ])->assignRole('relawan');
+
         User::create([
-            'name' => "Agen 4",
-            'email' => "agen4@gmail.com",
-            'password' => bcrypt("09047476"),
+            'name' => "Mutmainnah amandah",
+            'email' => "amandahinnah19@gmail.com",
+            'city' => "Balikpapan",
+            'password' => bcrypt("90396918"),
         ])->assignRole('relawan');
-        User::create([
-            'name' => "Agen 5",
-            'email' => "agen5@gmail.com",
-            'password' => bcrypt("26763242"),
-        ])->assignRole('relawan');
-        User::create([
-            'name' => "Agen 6",
-            'email' => "agen6@gmail.com",
-            'password' => bcrypt("09144167"),
-        ])->assignRole('relawan');
-        User::create([
-            'name' => "Agen 7",
-            'email' => "agen7@gmail.com",
-            'password' => bcrypt("36069799"),
-        ])->assignRole('relawan');
+
 
         // for ($i = 1; $i <= 30; $i++) {
         //     // Generate random coordinates
