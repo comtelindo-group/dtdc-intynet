@@ -20,7 +20,29 @@ class VolunteerController extends Controller
 
     public function create()
     {
-        return view('pages.volunteer.create');
+        // if user city = Bontang
+        if (Auth::user()->city == 'Balikpapan') {
+            $kelurahan = ['Lamaru', 'Manggar', 'Manggar Baru', 'Teritip', 'Baru Ilir', 'Baru Tengah', 'Baru Ulu', 'Kariangau', 'Margasari', 'Margo Mulyo', 'Batu Ampar', 'Graha Indah', 'Gunung Samarinda', 'Gunung Samarinda Baru', 'Karang Joang', 'Muara Rapak', 'Gunung Sari Ilir', 'Gunung Sari Ulu', 'Karang Jati', 'Karang Rejo', 'Mekar Sari', 'Sumber Rejo', 'Damai Bahagia', 'Damai Baru', 'Gunung Bahagia', 'Sepinggan', 'Sepinggan Baru', 'Sepinggan Raya', 'Sungai Nangka', 'Damai', 'Klandasan Ilir', 'Klandasan Ulu', 'Prapatan', 'Telaga Sari'];
+        } else {
+            $kelurahan = [
+                "Api-Api",
+                "Bontang Baru",
+                "Bontang Kuala",
+                "Guntung",
+                "Gunung Elai",
+                "Lok Tuan",
+                "Berbas Pantai",
+                "Berbas Tengah",
+                "Bontang Lestari",
+                "Satimpo",
+                "Tanjung Laut",
+                "Tanjung Laut Indah",
+                "Belimbing",
+                "Kanaan",
+                "Telihan"
+            ];
+        }
+        return view('pages.volunteer.create', compact('kelurahan'));
     }
 
     public function store(Request $request)

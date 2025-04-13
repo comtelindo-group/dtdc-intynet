@@ -60,7 +60,7 @@
                     <label for="name" class="required">Kelurahan</label>
                     <select name="kelurahan" id="kelurahan" class="form-select form-select-solid" data-control="select2" required>
                         <option value="" selected>Pilih Kelurahan</option>
-                        @foreach (['Lamaru', 'Manggar', 'Manggar Baru', 'Teritip', 'Baru Ilir', 'Baru Tengah', 'Baru Ulu', 'Kariangau', 'Margasari', 'Margo Mulyo', 'Batu Ampar', 'Graha Indah', 'Gunung Samarinda', 'Gunung Samarinda Baru', 'Karang Joang', 'Muara Rapak', 'Gunung Sari Ilir', 'Gunung Sari Ulu', 'Karang Jati', 'Karang Rejo', 'Mekar Sari', 'Sumber Rejo', 'Damai Bahagia', 'Damai Baru', 'Gunung Bahagia', 'Sepinggan', 'Sepinggan Baru', 'Sepinggan Raya', 'Sungai Nangka', 'Damai', 'Klandasan Ilir', 'Klandasan Ulu', 'Prapatan', 'Telaga Sari'] as $item)
+                        @foreach ($kelurahan as $item)
                             <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>
