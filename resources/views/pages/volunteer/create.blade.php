@@ -44,7 +44,7 @@
                         id="foto_rumah" required>
                 </div>
 
-                <div class="mb-3 d-flex flex-column gap-2 px-4">
+                {{-- <div class="mb-3 d-flex flex-column gap-2 px-4">
                     <label for="name">Nomor Rumah</label>
                     <input type="text" autocomplete="off" name="house_number"
                         class="form-control form-control-solid border" id="name" >
@@ -64,7 +64,7 @@
                             <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
 
                 <div class="mb-3 d-flex flex-column gap-2 px-4">
                     <label for="name" class="required">Status</label>
