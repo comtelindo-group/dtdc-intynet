@@ -17,6 +17,9 @@
     @case('Hanya taruh brosur')
         <span class="badge badge-danger">Hanya taruh brosur</span>
     @break
+    @case('Pemasangan Banner')
+        <span class="badge badge-info">Pemasangan Banner</span>
+    @break
 
     @case('Tidak tertarik')
         <span class="badge badge-warning">Tidak tertarik</span>
