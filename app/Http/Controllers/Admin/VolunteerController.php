@@ -76,6 +76,7 @@ class VolunteerController extends Controller
         $interest3 = Volunteer::where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Family 30 Mbps"])->count();
         $interest4 = Volunteer::where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Maxima 50 Mbps"])->count();
         $interest5 = Volunteer::where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet 100 Mbps"])->count();
+        $bannerInstallation = Volunteer::where('status', Constant::VOLUNTEERS_STATUS["Pemasangan Banner"])->count();
         $interest = $interest1 + $interest2 + $interest3 + $interest4 + $interest5;
         $all = Volunteer::count();
         return view('pages.admin.volunteer.index', compact([
@@ -90,6 +91,7 @@ class VolunteerController extends Controller
             "interest4",
             "interest5",
             "interest",
+            "bannerInstallation",
         ]));
     }
 
@@ -200,6 +202,7 @@ class VolunteerController extends Controller
         $interest3 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Family 30 Mbps"])->count();
         $interest4 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet Maxima 50 Mbps"])->count();
         $interest5 = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Tertarik dengan produk Intynet 100 Mbps"])->count();
+        $bannerInstallation = (clone $query)->where('status', Constant::VOLUNTEERS_STATUS["Pemasangan Banner"])->count();
         $interest = $interest1 + $interest2 + $interest3 + $interest4 + $interest5;
 
 
@@ -213,6 +216,7 @@ class VolunteerController extends Controller
             'interest3' => $interest3,
             'interest4' => $interest4,
             'interest5' => $interest5,
+            'bannerInstallation' => $bannerInstallation,
         ]);
     }
 }
