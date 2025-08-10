@@ -20,12 +20,12 @@ class VolunteerController extends Controller
 
     public function create()
     {
+        dd(Constant::VOLUNTEERS_STATUS);
         return view('pages.volunteer.create');
     }
 
     public function store(Request $request)
     {
-        dd(Constant::VOLUNTEERS_STATUS);
         $request->validate(
             [
                 'photo' => 'nullable|image',
