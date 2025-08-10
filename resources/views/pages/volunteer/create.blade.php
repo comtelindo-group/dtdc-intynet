@@ -71,7 +71,6 @@
                     <select name="status" class="form-select form-select-solid" data-control="select2" required>
                         <option value="" selected>Pilih Jawaban</option>
                         @foreach (\App\Constant::VOLUNTEERS_STATUS as $item)
-                            @php dd($item) @endphp
                             <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>

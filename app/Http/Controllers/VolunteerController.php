@@ -25,6 +25,7 @@ class VolunteerController extends Controller
 
     public function store(Request $request)
     {
+        dd(Constant::VOLUNTEERS_STATUS);
         $request->validate(
             [
                 'photo' => 'nullable|image',
