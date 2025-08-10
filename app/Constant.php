@@ -12,5 +12,6 @@ class Constant
         "Tertarik dengan produk Intynet 100 Mbps" => "Tertarik dengan produk Intynet 100 Mbps",
         "Hanya taruh brosur" => "Hanya taruh brosur",
         "Tidak tertarik" => "Tidak tertarik",
+        "Pemasangan Banner" => "Pemasangan Banner"
     ];
 }
