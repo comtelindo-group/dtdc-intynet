@@ -101,8 +101,10 @@
                 style="background-color: green;"></span> Tertarik dengan produk Intynet Family 30 Mbps<br>
             <input type="checkbox" id="green4" checked> <span class="legend-color"
                 style="background-color: green;"></span> Tertarik dengan produk Intynet Maxima 50 Mbps<br>
-                <input type="checkbox" id="green4" checked> <span class="legend-color"
+                <input type="checkbox" id="green5" checked> <span class="legend-color"
                 style="background-color: green;"></span> Tertarik dengan produk Intynet 100 Mbps<br>
+            <input type="checkbox" id="blue" checked> <span class="legend-color"
+                style="background-color: blue;"></span> Pemasangan Banner<br>
             <input type="checkbox" id="yellow" checked> <span class="legend-color"
                 style="background-color: yellow;"></span> Tidak tertarik<br>
             <input type="checkbox" id="red" checked> <span class="legend-color"
@@ -165,6 +167,15 @@
             shadowAnchor: [12, 41]
         });
 
+        var blueMarker = L.icon({
+            iconUrl: '{{ asset('assets/plugins/custom/leaflet/images/leaflet/marker-icon-blue.png') }}',
+            iconSize: [23, 35],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41],
+            shadowAnchor: [12, 41]
+        });
+
         var yellowMarker = L.icon({
             iconUrl: '{{ asset('assets/plugins/custom/leaflet/images/leaflet/marker-icon-yellow.png') }}',
             iconSize: [23, 35],
@@ -186,6 +197,8 @@
                     return greenMarker4;
                 case 'Tertarik dengan produk Intynet 100 Mbps':
                     return greenMarker5;
+                case 'Pemasangan Banner':
+                    return blueMarker;
                 case 'Hanya taruh brosur':
                     return redMarker;
                 case 'Tidak tertarik':
@@ -205,6 +218,8 @@
                     return 'Tertarik dengan produk Intynet Maxima 50 Mbps';
                 case 'Tertarik dengan produk Intynet 100 Mbps':
                     return 'Tertarik dengan produk Intynet 100 Mbps';
+                case 'Pemasangan Banner':
+                    return 'Pemasangan Banner';
                 case 'Hanya taruh brosur':
                     return 'Hanya taruh brosur';
                 case 'Tidak tertarik':
@@ -286,6 +301,17 @@
                 }
             });
 
+            var blueCluster = L.markerClusterGroup({
+                iconCreateFunction: function(cluster) {
+                    return L.divIcon({
+                        html: '<div style="background-color:rgba(0,0,255,0.6);width:40px;height:40px;border-radius:50%;line-height:40px;text-align:center;color:white;">' +
+                            cluster.getChildCount() + '</div>',
+                        className: 'custom-cluster',
+                        iconSize: [40, 40]
+                    });
+                }
+            });
+
             var yellowCluster = L.markerClusterGroup({
                 iconCreateFunction: function(cluster) {
                     return L.divIcon({
@@ -324,13 +350,16 @@
                         greenCluster2.addLayer(marker);
                         break;
                     case 'Tertarik dengan produk Intynet Family 30 Mbps':
-                        greenCluster1.addLayer(marker);
+                        greenCluster3.addLayer(marker);
                         break;
                     case 'Tertarik dengan produk Intynet Maxima 50 Mbps':
                         greenCluster4.addLayer(marker);
                         break;
                     case 'Tertarik dengan produk Intynet 100 Mbps':
-                        greenCluster4.addLayer(marker);
+                        greenCluster5.addLayer(marker);
+                        break;
+                    case 'Pemasangan Banner':
+                        blueCluster.addLayer(marker);
                         break;
                     case 'Hanya taruh brosur':
                         redCluster.addLayer(marker);
@@ -347,6 +376,8 @@
             map.addLayer(greenCluster2);
             map.addLayer(greenCluster3);
             map.addLayer(greenCluster4);
+            map.addLayer(greenCluster5);
+            map.addLayer(blueCluster);
             map.addLayer(yellowCluster);
 
             // Function to update markers based on checkboxes
@@ -361,6 +392,10 @@
                 else map.removeLayer(greenCluster3);
                 if ($('#green4').is(':checked')) map.addLayer(greenCluster4);
                 else map.removeLayer(greenCluster4);
+                if ($('#green5').is(':checked')) map.addLayer(greenCluster5);
+                else map.removeLayer(greenCluster5);
+                if ($('#blue').is(':checked')) map.addLayer(blueCluster);
+                else map.removeLayer(blueCluster);
                 if ($('#yellow').is(':checked')) map.addLayer(yellowCluster);
                 else map.removeLayer(yellowCluster);
             }
